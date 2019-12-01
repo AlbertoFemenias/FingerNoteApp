@@ -1,4 +1,4 @@
-package com.example.securenoteapp;
+package com.example.fingernoteapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,8 +14,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import static com.example.securenoteapp.Crypto.decrypt;
-import static com.example.securenoteapp.Crypto.encrypt;
 
 public class MainActivity extends AppCompatActivity {
     private static final String FILE_NAME = "example.txt";
@@ -50,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             fos = openFileOutput(FILE_NAME, MODE_PRIVATE); //OPEN FILE
-            encryptedText = encrypt(text, password);       //ENCRYPT INPUT
-            fos.write(encryptedText.getBytes());           //SAVE ENCRYPTED INPUT
+            //encryptedText = encrypt(text, password);       //ENCRYPT INPUT
+            fos.write(text.getBytes());           //SAVE ENCRYPTED INPUT
 
             mEditText.getText().clear();
             //Toast.makeText(this, "Saved to " + getFilesDir() + "/" + FILE_NAME, Toast.LENGTH_LONG).show();
@@ -84,10 +82,10 @@ public class MainActivity extends AppCompatActivity {
                 sb.append(text).append("\n");
             }
 
-            decryptedText = decrypt(sb.toString(), password);
+            //decryptedText = decrypt(sb.toString(), password);
 
-            //mEditText.setText(sb.toString());
-            mEditText.setText(decryptedText);
+            //mEditText.setText();
+            mEditText.setText(sb.toString());
 
 
         } catch (IOException e) {

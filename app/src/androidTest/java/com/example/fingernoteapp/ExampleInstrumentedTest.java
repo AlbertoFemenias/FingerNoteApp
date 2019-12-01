@@ -1,4 +1,4 @@
-package com.example.securenoteapp;
+package com.example.fingernoteapp;
 
 import android.content.Context;
 
