@@ -45,7 +45,6 @@ public class EnterFingerActivity extends AppCompatActivity {
 
         //Start listening for authentication events//
         final BiometricPrompt myBiometricPrompt = new BiometricPrompt(activity, newExecutor, new BiometricPrompt.AuthenticationCallback() {
-            //onAuthenticationError is called when a fatal error occurrs//
             @Override
             public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
                 super.onAuthenticationError(errorCode, errString);
@@ -54,7 +53,6 @@ public class EnterFingerActivity extends AppCompatActivity {
                     Log.d(TAG, "An unrecoverable error occurred");
                 }
             }
-           //onAuthenticationSucceeded is called when a fingerprint is matched successfully//
             @Override
             public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
                 super.onAuthenticationSucceeded(result);
@@ -64,7 +62,6 @@ public class EnterFingerActivity extends AppCompatActivity {
                 finish();
 
             }
-            //onAuthenticationFailed is called when the fingerprint doesn’t match//
             @Override
             public void onAuthenticationFailed() {
                 super.onAuthenticationFailed();
